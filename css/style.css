@@ -2333,31 +2333,10 @@ html, body {
     color: #8f8475 !important;
   }
 
-  .nav__burger {
-    background: rgba(14, 14, 11, 0.88) !important;
-    backdrop-filter: blur(14px) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
-    border: 1px solid rgba(212, 175, 55, 0.4) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
-  }
-
-  .nav__burger span {
-    background: #d4af37 !important;
-  }
-
-  /* Mobile menu drawer styling */
+  /* Hide Hamburger & Mobile Overlay Drawer on Mobile in favor of Bottom App Dock */
+  .nav__burger,
   .nav__mobile {
-    background: rgba(8, 8, 6, 0.97) !important;
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-  }
-  .nav__mobile .nav__link {
-    color: #ffffff;
-    font-size: 2.2rem !important;
-    letter-spacing: 4px !important;
-  }
-  .nav__mobile .nav__link.active {
-    color: #d4af37;
+    display: none !important;
   }
 
   /* Contact page email banner wrap fix */
