@@ -48,95 +48,174 @@
   <main class="page-wrapper">
     <div class="contact-redesign-wrapper">
       
-      <!-- HERO EDITORIAL SPLIT SHOWCASE -->
-      <section class="contact-split-hero">
-        <div class="contact-split-text reveal">
-          <div class="contact-text-box">
-            <div class="contact-eyebrow-pill">
-              <span class="status-pulse"></span>
-              <span>London Studio &bull; Booking 2026/2027</span>
-            </div>
-            
-            <h1 class="contact-main-heading">
-              Initiate The <em>Connection.</em>
-            </h1>
-            
-            <p class="contact-hero-bio">
-              We accept a limited number of luxury weddings, fine art editorial portraits, and destination films each year to ensure uncompromising artistic quality.
-            </p>
-          </div>
-
-          <!-- GIANT CLICK-TO-COPY EMAIL BANNER -->
-          <div class="giant-email-banner js-copy-card" data-copy="kvmcreations@gmail.com" data-type="Email address">
-            <div style="display:flex;align-items:center;gap:16px;">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e5c158" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
-              <span class="giant-email__text">kvmcreations@gmail.com</span>
-            </div>
-            <span class="giant-email__badge">Click to Copy</span>
-          </div>
+      <!-- HERO SECTION -->
+      <section class="contact-hero-section reveal">
+        <div class="contact-status-pill">
+          <span class="status-pulse"></span>
+          <span>London Studio &bull; Booking 2026/2027 Commissions</span>
         </div>
-
-        <!-- RIGHT EDITORIAL MEDIA FRAME -->
-        <div class="contact-split-media reveal reveal-delay-2">
-          <img src="assets/images/img14.webp" alt="KVM Creations Editorial Masterpiece" loading="eager" />
-          <div class="contact-media-badge">KVM Creation Studios &bull; London, UK</div>
-        </div>
+        
+        <h1 class="contact-hero-heading">
+          Let’s Create Something <em>Extraordinary.</em>
+        </h1>
+        
+        <p class="contact-hero-sub">
+          We accept a limited number of luxury weddings, fine art portraits, and destination films each year to ensure uncompromising artistic quality.
+        </p>
       </section>
 
-      <!-- OFFICIAL SOCIAL PLATFORMS & CHANNELS GRID -->
-      <section class="reveal">
-        <div class="contact-platforms-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <!-- DUAL SPLIT: INQUIRY FORM & STUDIO DIRECT DOCK -->
+      <section class="contact-main-grid">
+        
+        <!-- LEFT: LUXURY INQUIRY FORM (APP-STYLE WORKFLOW) -->
+        <div class="contact-form-card reveal">
+          <h2 class="form-card__title">Reserve Your Date</h2>
+          <p class="form-card__desc">Fill in your details and our lead director will respond within 24 hours.</p>
+
+          <form id="contactForm" onsubmit="event.preventDefault(); handleInquirySubmit();">
+            
+            <!-- SELECTOR PILLS FOR EVENT TYPE -->
+            <div class="form-group">
+              <label class="form-label">Select Service</label>
+              <div class="service-selector-pills">
+                <button type="button" class="service-pill active" onclick="setService(this, 'Wedding Photography')">Wedding</button>
+                <button type="button" class="service-pill" onclick="setService(this, 'Portrait Session')">Portrait</button>
+                <button type="button" class="service-pill" onclick="setService(this, 'Cinematic Film')">Film</button>
+                <button type="button" class="service-pill" onclick="setService(this, 'Editorial')">Editorial</button>
+              </div>
+              <input type="hidden" id="selectedService" name="service" value="Wedding Photography" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName" class="form-label">Your Name *</label>
+                <input type="text" id="fullName" class="form-input" placeholder="e.g. Eleanor &amp; James" required />
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address *</label>
+                <input type="email" id="email" class="form-input" placeholder="e.g. name@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone / WhatsApp</label>
+                <input type="tel" id="phone" class="form-input" placeholder="+1 (437) 000-0000" />
+              </div>
+              <div class="form-group">
+                <label for="eventDate" class="form-label">Estimated Date</label>
+                <input type="text" id="eventDate" class="form-input" placeholder="e.g. Summer 2026" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Tell Us About Your Vision *</label>
+              <textarea id="message" class="form-textarea" rows="4" placeholder="Share event location, venue details, or aesthetic vision..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-inquiry-btn" id="submitBtn">
+              <span>Send Inquiry</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- RIGHT: STUDIO DIRECT QUICK CONNECT & MASTER MEDIA FRAME -->
+        <div class="contact-side-col reveal reveal-delay-2">
           
-          <!-- INSTAGRAM -->
+          <!-- QUICK EMAIL COPY BANNER -->
+          <div class="giant-email-banner js-copy-card" data-copy="kvmcreations@gmail.com" data-type="Email address">
+            <div class="giant-email-inner">
+              <div class="giant-email-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.8">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="giant-email-label">Direct Email</p>
+                <span class="giant-email__text">kvmcreations@gmail.com</span>
+              </div>
+            </div>
+            <span class="giant-email__badge">Tap to Copy</span>
+          </div>
+
+          <!-- STUDIO EDITORIAL SHOWCASE FRAME -->
+          <div class="contact-split-media">
+            <img src="assets/images/img14.webp" alt="KVM Creations Editorial Masterpiece" loading="eager" />
+            <div class="contact-media-badge">London &bull; UK Studio &bull; Available Worldwide</div>
+          </div>
+
+          <!-- DIRECT WHATSAPP CARD -->
+          <a href="https://wa.me/14372338460" target="_blank" rel="noopener" class="contact-side-card js-copy-card" data-copy="+1 (437) 233-8460" data-type="WhatsApp Number">
+            <div class="side-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="side-card__label">Instant Chat</p>
+              <p class="side-card__val">+1 (437) 233-8460</p>
+            </div>
+            <div class="side-card__arrow">&rarr;</div>
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- SOCIAL CHANNELS SHOWCASE -->
+      <section class="social-channels-section reveal">
+        <h2 class="social-channels-title">Official Studio Channels</h2>
+        <div class="contact-platforms-grid">
+          
           <a href="https://www.instagram.com/kvmcreationsstudio.ca?igsh=MWdzMXEzdGVna3UxZA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener" class="platform-card-item platform-card-item--instagram">
             <div>
               <div class="platform-card__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </div>
-              <p class="platform-card__label">Instagram Profile</p>
+              <p class="platform-card__label">Instagram</p>
               <p class="platform-card__val">@kvmcreationsstudio.ca</p>
             </div>
             <div class="platform-card__btn">
-              <span>Visit Instagram</span> &rarr;
+              <span>View Portfolio</span> &rarr;
             </div>
           </a>
 
-          <!-- TIKTOK -->
           <a href="https://www.tiktok.com/@kvmcreationsstudio.ca?_r=1&amp;_t=ZS-986HAwQOaOL" target="_blank" rel="noopener" class="platform-card-item platform-card-item--tiktok">
             <div>
               <div class="platform-card__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
                 </svg>
               </div>
-              <p class="platform-card__label">TikTok Studio</p>
+              <p class="platform-card__label">TikTok</p>
               <p class="platform-card__val">@kvmcreationsstudio.ca</p>
             </div>
             <div class="platform-card__btn">
-              <span>Watch Reels &amp; Films</span> &rarr;
+              <span>Watch Films</span> &rarr;
             </div>
           </a>
 
-          <!-- WHATSAPP DIRECT CHAT -->
-          <a href="https://wa.me/14372338460" target="_blank" rel="noopener" class="platform-card-item platform-card-item--whatsapp js-copy-card" data-copy="+1 (437) 233-8460" data-type="WhatsApp Number">
+          <a href="https://wa.me/14372338460" target="_blank" rel="noopener" class="platform-card-item platform-card-item--whatsapp">
             <div>
               <div class="platform-card__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                 </svg>
               </div>
-              <p class="platform-card__label">WhatsApp Direct Line</p>
+              <p class="platform-card__label">WhatsApp</p>
               <p class="platform-card__val">+1 (437) 233-8460</p>
             </div>
             <div class="platform-card__btn">
-              <span>Start Chat &bull; Copy Number</span> &rarr;
+              <span>Direct Chat</span> &rarr;
             </div>
           </a>
 
@@ -200,6 +279,23 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    function setService(btn, val) {
+      document.querySelectorAll('.service-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('selectedService').value = val;
+    }
+
+    function handleInquirySubmit() {
+      const toast = document.getElementById('copyToast');
+      if (toast) {
+        toast.textContent = "Inquiry Sent Successfully! We will contact you soon.";
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3500);
+      }
+      document.getElementById('contactForm').reset();
+    }
+  </script>
 </body>
 </html>
-
