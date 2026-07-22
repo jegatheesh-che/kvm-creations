@@ -130,22 +130,12 @@ if (window.matchMedia('(pointer: fine)').matches) {
 }
 
 // -----------------------------------------------
-// GSAP SCROLLTRIGGER BATCH REVEALS (60FPS Smooth)
+// INSTANT REVEAL (NO SLOW FADE-IN DELAY)
 // -----------------------------------------------
-if (document.querySelectorAll('.reveal').length) {
-  ScrollTrigger.batch('.reveal', {
-    onEnter: (batch) => gsap.to(batch, {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      stagger: 0.1,
-      ease: "power3.out",
-      overwrite: "auto"
-    }),
-    start: "top 88%",
-    once: true
-  });
-}
+document.querySelectorAll('.reveal').forEach(el => {
+  el.style.opacity = '1';
+  el.style.transform = 'none';
+});
 
 
 // -----------------------------------------------
