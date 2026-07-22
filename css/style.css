@@ -2221,3 +2221,184 @@ button { cursor: pointer; border: none; background: none; }
   }
 }
 
+/* ==========================================================================
+   ULTRA-LUXURY MOBILE APP EXPERIENCE (NATIVE APP UX POLISH)
+   ========================================================================== */
+
+/* Touch & Highlight Reset */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+a, button, input, textarea, .gallery-card, .collage-item, .filter-btn, .mobile-nav-item, .hero__cta, .giant-email-banner, .platform-card-item, .contact-card-item {
+  touch-action: manipulation;
+}
+
+/* Global Overflow Protection */
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
+/* Glassmorphic Floating Bottom App Navigation Dock (< 768px) */
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 24px);
+    max-width: 420px;
+    height: 62px;
+    background: rgba(12, 12, 10, 0.92);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 35px;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    z-index: 99990;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 8px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  }
+
+  .mobile-bottom-nav.nav-hidden {
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: color 0.3s ease, transform 0.2s ease, background 0.3s ease;
+    flex: 1;
+    min-height: 48px;
+  }
+
+  .mobile-nav-item:active {
+    transform: scale(0.92);
+  }
+
+  .mobile-nav-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), stroke 0.3s ease;
+    stroke: rgba(255, 255, 255, 0.6);
+  }
+
+  .mobile-nav-item span {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .mobile-nav-item.active {
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.14);
+  }
+
+  .mobile-nav-item.active .mobile-nav-icon {
+    stroke: #d4af37;
+    transform: translateY(-1px) scale(1.08);
+  }
+
+  /* Padding adjustments to prevent content overlap with bottom dock */
+  body {
+    padding-bottom: calc(75px + env(safe-area-inset-bottom));
+  }
+
+  .footer {
+    padding-bottom: 95px !important;
+  }
+
+  /* Header Logo & Burger fixes on Mobile */
+  .nav__logo-text {
+    font-size: 9.5px !important;
+    letter-spacing: 2px !important;
+    color: #8f8475 !important;
+  }
+
+  .nav__burger {
+    background: rgba(14, 14, 11, 0.88) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .nav__burger span {
+    background: #d4af37 !important;
+  }
+
+  /* Mobile menu drawer styling */
+  .nav__mobile {
+    background: rgba(8, 8, 6, 0.97) !important;
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+  }
+  .nav__mobile .nav__link {
+    color: #ffffff;
+    font-size: 2.2rem !important;
+    letter-spacing: 4px !important;
+  }
+  .nav__mobile .nav__link.active {
+    color: #d4af37;
+  }
+
+  /* Contact page email banner wrap fix */
+  .giant-email__text {
+    word-break: break-all !important;
+    overflow-wrap: anywhere !important;
+    font-size: clamp(1.05rem, 4vw, 1.5rem) !important;
+  }
+
+  .giant-email-banner {
+    width: 100% !important;
+  }
+
+  /* Positioning Toast Notice above bottom bar */
+  .copy-toast {
+    bottom: 88px !important;
+  }
+
+  /* Hero Mute button position on mobile */
+  .hero-mute-btn {
+    bottom: 88px !important;
+    right: 16px !important;
+  }
+
+  /* Badges positioning on mobile (no clipping) */
+  .round-badge {
+    top: -20px !important;
+    right: 10px !important;
+    width: 85px !important;
+    height: 85px !important;
+  }
+
+  .video-badge {
+    bottom: -40px !important;
+    left: 10px !important;
+    padding: 10px 16px !important;
+  }
+
+  .video-badge img {
+    width: 130px !important;
+  }
+}
+
+

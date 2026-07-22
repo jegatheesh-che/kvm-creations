@@ -499,3 +499,21 @@ document.querySelectorAll('.js-copy-card').forEach(card => {
     }
   });
 });
+
+// -----------------------------------------------
+// MOBILE APP BOTTOM DOCK SCROLL LOGIC
+// -----------------------------------------------
+let lastScrollYVal = window.scrollY;
+const bottomNavEl = document.getElementById('mobileBottomNav');
+if (bottomNavEl) {
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > 120 && currentScrollY > lastScrollYVal + 10) {
+      bottomNavEl.classList.add('nav-hidden');
+    } else {
+      bottomNavEl.classList.remove('nav-hidden');
+    }
+    lastScrollYVal = currentScrollY;
+  }, { passive: true });
+}
+
