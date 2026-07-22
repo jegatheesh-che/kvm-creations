@@ -3,12 +3,15 @@
    GSAP + Lenis + vanilla scroll reveal + cursor
    ================================================ */
 
-// --- Lenis smooth scroll (Standard Configuration) ---
+// --- Lenis physics smooth scroll (Master Agency Tuning) ---
 const lenis = new Lenis({
-  duration: 1.2,
+  duration: 1.4,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
-  touchMultiplier: 1.8
+  wheelMultiplier: 0.95,
+  touchMultiplier: 1.5,
+  orientation: 'vertical',
+  gestureOrientation: 'vertical'
 });
 
 // --- GSAP ScrollTrigger sync ---
@@ -95,7 +98,7 @@ if (burger && mobileMenu) {
 }
 
 // -----------------------------------------------
-// CUSTOM CURSOR (desktop fine pointer)
+// CUSTOM CURSOR (desktop fine pointer with smooth LERP)
 // -----------------------------------------------
 if (window.matchMedia('(pointer: fine)').matches) {
   const ring = document.querySelector('.cursor__ring');
@@ -111,15 +114,15 @@ if (window.matchMedia('(pointer: fine)').matches) {
     });
 
     function animateRing() {
-      rx += (mx - rx) * 0.15;
-      ry += (my - ry) * 0.15;
-      const scale = isHovered ? 'scale(1.8)' : 'scale(1)';
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      const scale = isHovered ? 'scale(1.9)' : 'scale(1)';
       ring.style.transform = `translate3d(${rx - 14}px, ${ry - 14}px, 0) ${scale}`;
       requestAnimationFrame(animateRing);
     }
     animateRing();
 
-    document.querySelectorAll('a, button, .gallery-card, .collage-item, .filter-btn').forEach(el => {
+    document.querySelectorAll('a, button, .gallery-card, .collage-item, .filter-btn, .mobile-nav-item, .platform-card-item, .contact-side-card').forEach(el => {
       el.addEventListener('mouseenter', () => isHovered = true);
       el.addEventListener('mouseleave', () => isHovered = false);
     });
@@ -127,19 +130,21 @@ if (window.matchMedia('(pointer: fine)').matches) {
 }
 
 // -----------------------------------------------
-// SCROLL REVEAL (IntersectionObserver)
+// GSAP SCROLLTRIGGER BATCH REVEALS (60FPS Smooth)
 // -----------------------------------------------
-const revealEls = document.querySelectorAll('.reveal');
-if (revealEls.length) {
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in-view');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  revealEls.forEach(el => io.observe(el));
+if (document.querySelectorAll('.reveal').length) {
+  ScrollTrigger.batch('.reveal', {
+    onEnter: (batch) => gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      stagger: 0.1,
+      ease: "power3.out",
+      overwrite: "auto"
+    }),
+    start: "top 88%",
+    once: true
+  });
 }
 
 
