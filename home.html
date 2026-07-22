@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KVM Creations — London</title>
+  <meta name="description" content="KVM Creations — capturing love stories, moments and emotions in London, UK." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-wallpaper">
+    <div class="bg-wallpaper__inner"></div>
+  </div>
+
+  <div class="cursor__ring"></div>
+  <div class="cursor__dot"></div>
+
+  <!-- NAV (no page-wrapper padding on homepage — hero is full 100vh) -->
+  <nav class="nav" id="nav">
+    <a href="home.html" class="nav__logo">
+      <span class="nav__logo-icon" style="font-family: var(--font-serif); font-size: 1.5em; color: var(--clr-gold-light); text-transform: uppercase;">KVM</span>
+      <span class="nav__logo-text" style="font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 1px;">Creation Studios</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="home.html" class="nav__link active">Home</a></li>
+      <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <button class="nav__burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="nav__mobile" id="mobileMenu">
+    <ul style="display:flex;flex-direction:column;align-items:center;gap:36px;list-style:none;">
+      <li><a href="home.html" class="nav__link active">Home</a></li>
+      <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <div style="width:1px;height:48px;background:linear-gradient(to bottom,transparent,#8a6f3e,transparent);"></div>
+    <div class="nav__mobile-social">
+      <a href="http://instagram.com/kvmcreations" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@kvmcreationsstudio.ca?_r=1&amp;_t=ZS-986HAwQOaOL" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- HERO — full 100vh, nav overlaps it     -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <section class="hero hero--full" id="hero">
+    <div class="hero__slide active">
+      <video id="hero-reveal-video" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        <source src="assets/rotated/wall1.webm" type="video/webm">
+        <source src="assets/rotated/wall1.mp4" type="video/mp4">
+      </video>
+      <div class="hero__content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10; pointer-events: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 12px; width: 90vw;">
+        <span class="mask-reveal-wrap">
+          <span class="mask-reveal-inner" style="--delay: 0.1s; font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 6rem); color: #d4af37; line-height: 1; text-transform: uppercase; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">KVM</span>
+        </span>
+        <span class="mask-reveal-wrap">
+          <span class="mask-reveal-inner" style="--delay: 0.5s; font-family: var(--font-sans); font-size: clamp(1.5rem, 4vw, 3rem); color: #ffffff; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Creation Studios</span>
+        </span>
+      </div>
+      <button id="hero-mute-btn" class="hero-mute-btn" aria-label="Toggle mute" style="z-index: 20;">
+        <svg class="icon-muted" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        <svg class="icon-unmuted" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- INTRO STATEMENT                        -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="home-intro">
+    <span class="home-intro__eyebrow reveal">London &mdash; UK &mdash; Worldwide</span>
+    <h2 class="home-intro__title reveal reveal-delay-1">
+      Photography that feels like<br /><em>a held breath.</em>
+    </h2>
+    <div class="home-intro__line reveal reveal-delay-2"></div>
+    <p class="home-intro__body reveal reveal-delay-3">
+      I document love stories, emotional ceremonies, and quiet human moments — with a
+      fine-art sensibility drawn from years at the intersection of science and art.
+      Every frame is a still life. Every still life, a feeling.
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FEATURED WORK GRID                     -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="home-featured">
+    <div class="home-featured__header reveal">
+      <div class="home-featured__header-left">
+        <p class="section-label">Selected Work</p>
+        <h2>Recent Stories</h2>
+      </div>
+      <a href="gallery.html" class="home-featured__cta">View Full Gallery &rarr;</a>
+    </div>
+        <div class="home-featured__grid">
+
+      <!-- Tall left item -->
+      <div class="home-featured__item home-featured__item--tall reveal slideshow-item" data-interval="4500" data-delay="2000">
+        <img src="assets/images/img1.webp" alt="Wedding couple" class="active" />
+        <img src="assets/images/img2.webp" alt="Wedding couple" />
+        <div class="home-featured__item-label"><p>The First Glance</p></div>
+      </div>
+
+      <!-- Top right -->
+      <div class="home-featured__item reveal reveal-delay-1 slideshow-item" data-interval="5800" data-delay="3800">
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.30%20PM%20%281%29.jpeg" alt="Fine art wedding" class="active" />
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.30%20PM%20%282%29.jpeg" alt="Fine art wedding"  />
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.30%20PM.jpeg" alt="Fine art wedding"  />
+        <div class="home-featured__item-label"><p>Morocco Reverie</p></div>
+      </div>
+
+      <!-- Top far right -->
+      <div class="home-featured__item reveal reveal-delay-2 slideshow-item" data-interval="5000" data-delay="5200">
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.34%20PM.jpeg" alt="Scotland highlands" class="active" />
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.40%20PM.jpeg" alt="Scotland highlands"  />
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.41%20PM.jpeg" alt="Scotland highlands"  />
+        <div class="home-featured__item-label"><p>Love, Rain &amp; Kiss</p></div>
+      </div>
+
+      <!-- Bottom right -->
+      <div class="home-featured__item reveal reveal-delay-1 slideshow-item" data-interval="6500" data-delay="2800">
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.44%20PM%20%281%29.jpeg" alt="Portrait session" class="active" />
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.44%20PM.jpeg" alt="Portrait session"  />
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.45%20PM.jpeg" alt="Portrait session"  />
+        <div class="home-featured__item-label"><p>Still &amp; Found</p></div>
+      </div>
+
+      <!-- Bottom far right -->
+      <div class="home-featured__item reveal reveal-delay-2 slideshow-item" data-interval="5400" data-delay="4400">
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.48%20PM.jpeg" alt="Destination wedding" class="active" />
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.49%20PM%20%281%29.jpeg" alt="Destination wedding"  />
+        <img src="assets/raw/images/WhatsApp%20Image%202026-07-20%20at%2010.39.49%20PM.jpeg" alt="Destination wedding"  />
+        <div class="home-featured__item-label"><p>Golden Hour</p></div>
+      </div>
+
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SERVICES STRIP                         -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="home-services">
+    <div class="home-services__inner">
+
+      <div class="home-service reveal">
+        <div class="home-service__num">01</div>
+        <h3 class="home-service__title">Weddings &amp; Ceremonies</h3>
+        <p class="home-service__desc">Full-day documentary coverage of your ceremony — candid emotions, quiet rituals, and every stolen glance between you.</p>
+        <a href="gallery.html" class="home-service__arrow">&#8594;</a>
+      </div>
+
+      <div class="home-service reveal reveal-delay-1">
+        <div class="home-service__num">02</div>
+        <h3 class="home-service__title">Eshoot Sessions</h3>
+        <p class="home-service__desc">Intimate editorial shoots built around your story — a location, a feeling, a mood. No posing scripts. Just real connection.</p>
+        <a href="eshoot.html" class="home-service__arrow">&#8594;</a>
+      </div>
+
+      <div class="home-service reveal reveal-delay-2">
+        <div class="home-service__num">03</div>
+        <h3 class="home-service__title">Fine Art Portraits</h3>
+        <p class="home-service__desc">Single-subject or family portraits crafted with the same fine-art lens — light, stillness, and the complexity within simplicity.</p>
+        <a href="stories.html" class="home-service__arrow">&#8594;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- ABOUT TEASER                           -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="home-about">
+
+    <div class="home-about__content">
+      <p class="section-label reveal">The Photographer</p>
+      <h2 class="reveal reveal-delay-1">Art &amp; Science,<br /><em>unified by light.</em></h2>
+      <p class="reveal reveal-delay-2">
+        KVM Creations is a Sri Lankan-born, London-based photographer and multi-disciplinary
+        artist holding a Ph.D. in Cancer Biology. She brings the same rigorous curiosity
+        from the laboratory into every frame — observing, waiting, and capturing the moment
+        that reveals the most.
+      </p>
+      <p class="reveal reveal-delay-3">
+        Her work explores <strong>humour, pain, compassion, and sadness</strong> — seeking
+        complexity within simplicity to tell compelling stories that last beyond the moment.
+      </p>
+      <a href="about.html" class="home-about__link reveal reveal-delay-4">Read the full story</a>
+    </div>
+
+    <div class="home-about__img-wrap">
+      <div class="vogue-wrap">
+        <div class="vogue-mask"></div>
+        <div class="vogue-parallax">
+          <img src="assets/images/img1.webp" alt="Photographer portrait" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <blockquote class="footer__quote">
+      <p id="quote-text">"I think... if it is true that there are as many minds as there are heads, then there are as many kinds of love as there are hearts."</p>
+      <cite id="quote-author">— Leo Tolstoy</cite>
+    </blockquote>
+    <div class="footer__social">
+      <a href="https://www.instagram.com/kvmcreationsstudio.ca?igsh=MWdzMXEzdGVna3UxZA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <span class="footer__social-dot"></span>
+      <a href="https://www.tiktok.com/@kvmcreationsstudio.ca?_r=1&amp;_t=ZS-986HAwQOaOL" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+      </a>
+    </div>
+    <p class="footer__copy">&copy; 2025 KVM Creations</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slideshowItems = document.querySelectorAll('.slideshow-item');
+    
+    slideshowItems.forEach((box, index) => {
+      const interval = 3500; // Medium speed (~3.5s per image swap)
+      let currentImgNum = (index * 11) + 1;
+      
+      // Micro offset (150ms step) for subtle cascading start, no long delay
+      setTimeout(() => {
+        setInterval(() => {
+          const label = box.querySelector('.home-featured__item-label');
+          
+          currentImgNum++;
+          if (currentImgNum > 57) {
+            currentImgNum = 1;
+          }
+          
+          const newImg = document.createElement('img');
+          newImg.alt = "Featured Work";
+          
+          newImg.onload = () => {
+            box.insertBefore(newImg, label);
+            
+            void newImg.offsetWidth; // Force browser reflow
+            
+            newImg.classList.add('active');
+            
+            setTimeout(() => {
+              const allImages = box.querySelectorAll('img');
+              allImages.forEach(img => {
+                if (img !== newImg) img.remove();
+              });
+            }, 1200);
+          };
+          
+          newImg.src = `assets/images/img${currentImgNum}.webp`;
+        }, interval);
+      }, index * 150);
+    });
+  });
+</script>
+</body>
+</html>
+
+
+
