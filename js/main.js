@@ -372,11 +372,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (idx < 0 || idx >= activeCardsArray.length) return;
       currentIndex = idx;
       const card = activeCardsArray[currentIndex];
+      const img = card.querySelector('img');
       const rawCat = card.getAttribute('data-category') || 'Portfolio';
       const cat = rawCat.charAt(0).toUpperCase() + rawCat.slice(1);
-      const title = card.getAttribute('data-title') || img?.alt || 'KVM Showcase';
+      const title = card.getAttribute('data-title') || (img ? img.alt : 'KVM Showcase');
       
-      if (img) {
+      if (img && lightboxImg) {
         lightboxImg.src = img.src;
         lightboxImg.alt = title;
       }
@@ -385,10 +386,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openLightbox(card) {
-      const visibleCards = Array.from(document.querySelectorAll('.gallery-masonry .gallery-card')).filter(
+      const visibleCards = Array.from(document.querySelectorAll('.gallery-card, .collage-item, .home-featured__item, .contact-split-media, .hero__image-wrapper, .editorial-image-wrapper')).filter(
         c => window.getComputedStyle(c).display !== 'none'
       );
-      activeCardsArray = visibleCards.length > 0 ? visibleCards : Array.from(document.querySelectorAll('.gallery-masonry .gallery-card'));
+      activeCardsArray = visibleCards.length > 0 ? visibleCards : Array.from(document.querySelectorAll('.gallery-card, .collage-item, .home-featured__item, .contact-split-media, .hero__image-wrapper, .editorial-image-wrapper'));
       
       currentIndex = activeCardsArray.indexOf(card);
       if (currentIndex === -1) currentIndex = 0;
@@ -403,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.gallery-card, .collage-item').forEach(card => {
+    document.querySelectorAll('.gallery-card, .collage-item, .home-featured__item, .contact-split-media, .hero__image-wrapper, .editorial-image-wrapper').forEach(card => {
       card.addEventListener('click', () => openLightbox(card));
     });
 
