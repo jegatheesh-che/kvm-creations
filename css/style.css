@@ -1132,11 +1132,42 @@ button { cursor: pointer; border: none; background: none; transition: transform 
 .footer__quote p { font-family: var(--font-serif); font-size: 16px; font-style: italic; color: #000000; line-height: 1.8; margin-bottom: 12px; min-height: 85px; display: flex; align-items: center; transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform: translateY(0); }
 .footer__quote cite { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--clr-gold-dark); font-weight: 500; font-style: normal; display: block; transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform: translateY(0); }
 .footer__quote.fade-out p, .footer__quote.fade-out cite { opacity: 0; transform: translateY(8px); }
-.footer__social { display: flex; gap: 28px; align-items: center; }
-.footer__social a { display: inline-flex; align-items: center; color: var(--clr-muted); transition: color 0.3s, transform 0.3s; }
-.footer__social a:hover { color: var(--clr-gold); transform: translateY(-3px); }
-.footer__social-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--clr-border); }
-.footer__copy { font-size: 10px; letter-spacing: 2px; color: rgba(122,112,104,0.5); text-transform: uppercase; }
+.footer__social { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.footer__social a, .nav__mobile-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-muted);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 8px 18px;
+  border-radius: 30px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+.footer__social a:hover, .nav__mobile-social a:hover {
+  color: #ffffff;
+  background: #000000;
+  border-color: var(--clr-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+}
+.footer__social a svg, .nav__mobile-social a svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  transition: transform 0.3s ease;
+}
+.footer__social a:hover svg, .nav__mobile-social a:hover svg {
+  transform: scale(1.15);
+  stroke: var(--clr-gold);
+}
+.footer__social-dot { display: none; }
+.footer__copy { font-size: 10px; letter-spacing: 2px; color: rgba(122,112,104,0.6); text-transform: uppercase; }
 
 /* ===== MASK REVEAL (CURTAIN PULL) ANIMATION ===== */
 .mask-reveal-wrap {
