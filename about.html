@@ -48,27 +48,46 @@
   <main class="page-wrapper">
     <div class="about-editorial-wrapper">
       
-      <!-- HERO SPLIT SECTION (002-LUXURY-EDITORIAL-SPLIT) -->
+      <!-- HERO SPLIT SECTION — ABOUT MATHU -->
       <section class="hero__layout">
         <div class="hero__text-col">
           <p class="hero__eyebrow reveal">Visual Storyteller &amp; Cinematographer</p>
           <div class="hero__title-wrap">
-            <h1 class="hero__title">The Art of</h1>
-          </div>
-          <div class="hero__title-wrap">
-            <h1 class="hero__title italic">Feeling.</h1>
+            <h1 class="hero__title">About <em>Mathu</em></h1>
           </div>
           
-          <p class="hero__desc reveal reveal-delay-2">
-            Founded by Mathusa Vinayakamoorthy, KVM Creations is a luxury studio dedicated to capturing genuine emotions, natural elegance, and unforgettable stories through photography and film.
+          <p class="hero__desc reveal reveal-delay-1" style="margin-top: 1.2rem; font-size: 0.98rem; line-height: 1.8;">
+            My name is Mathusa Vinayakamoorthy, and I am a photographer and visual storyteller with over 6 years of experience in the photography industry and 4 years of experience in videography.
           </p>
+
+          <p class="hero__desc reveal reveal-delay-2" style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.8;">
+            My passion has always been about capturing genuine emotions, meaningful connections, and the unforgettable moments that make every story unique. Through photography, I focus on creating timeless images with a natural style, authentic expressions, and attention to every detail.
+          </p>
+
+          <div class="about-more-content" id="aboutMoreContent" style="max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out;">
+            <p class="hero__desc" style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.8;">
+              Over the years, I have had the opportunity to capture weddings, cultural celebrations, engagements, and special milestones, allowing me to understand that every moment deserves to be preserved beautifully.
+            </p>
+
+            <p class="hero__desc" style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.8;">
+              Alongside photography, I also create cinematic films that bring memories back to life through storytelling, emotion, and creativity. My goal is not only to capture how a moment looks, but also how it feels.
+            </p>
+
+            <p class="hero__desc" style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.8; color: #111111; font-weight: 400;">
+              Every couple and every celebration has a different story &mdash; and my mission is to preserve those stories in a way that you can cherish for generations.
+            </p>
+          </div>
+
+          <button class="about-see-more-btn" id="aboutSeeMoreBtn" style="font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--clr-gold); margin-top: 1.2rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; border: none; background: none; padding: 0; outline: none; transition: color 0.3s;">
+            See More <span class="plus-minus" style="font-size: 0.9rem;">+</span>
+          </button>
           
-          <a href="contact.html" class="hero__cta reveal reveal-delay-3">Inquire Collection &rarr;</a>
+          <a href="contact.html" class="hero__cta reveal reveal-delay-4" style="margin-top: 1.8rem;">Inquire Collection &rarr;</a>
         </div>
         
         <div class="hero__image-col reveal">
           <div class="hero__image-wrapper">
-            <img src="assets/images/img2.webp" alt="Mathusa Vinayakamoorthy Visual Storyteller" class="hero__image" loading="eager" />
+            <img src="assets/about/about.webp" alt="Mathusa Vinayakamoorthy — About Mathu" class="hero__image" loading="eager" />
           </div>
         </div>
       </section>
@@ -76,7 +95,7 @@
       <!-- SECTION 2: EDITORIAL PHILOSOPHY SPLIT -->
       <section class="editorial-split-section reveal">
         <div class="editorial-image-wrapper">
-          <img src="assets/images/img10.webp" alt="Authentic Emotional Storytelling" loading="lazy" />
+          <img src="assets/about/IMG_7163.webp" alt="Authentic Emotional Storytelling" loading="lazy" />
         </div>
         <div class="editorial-text-col">
           <p class="hero__eyebrow">Our Philosophy</p>
@@ -129,7 +148,7 @@
           <a href="gallery.html" class="hero__cta">Explore Portfolio Gallery &rarr;</a>
         </div>
         <div class="editorial-image-wrapper">
-          <img src="assets/images/img14.webp" alt="Mathu Lead Photographer" loading="lazy" />
+          <img src="assets/about/mathu.webp" alt="Mathusa Vinayakamoorthy Lead Photographer" loading="lazy" />
         </div>
       </section>
 
@@ -210,6 +229,35 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const seeMoreBtn = document.getElementById('aboutSeeMoreBtn');
+      const moreContent = document.getElementById('aboutMoreContent');
+      if (seeMoreBtn && moreContent) {
+        seeMoreBtn.addEventListener('click', () => {
+          const isExpanded = seeMoreBtn.getAttribute('aria-expanded') === 'true';
+          
+          if (isExpanded) {
+            moreContent.style.maxHeight = '0px';
+            moreContent.style.opacity = '0';
+            seeMoreBtn.innerHTML = 'See More <span class="plus-minus" style="font-size: 0.9rem;">+</span>';
+            seeMoreBtn.setAttribute('aria-expanded', 'false');
+          } else {
+            moreContent.style.maxHeight = moreContent.scrollHeight + 'px';
+            moreContent.style.opacity = '1';
+            seeMoreBtn.innerHTML = 'See Less <span class="plus-minus" style="font-size: 0.9rem;">&minus;</span>';
+            seeMoreBtn.setAttribute('aria-expanded', 'true');
+          }
+          
+          setTimeout(() => {
+            if (typeof lenis !== 'undefined') {
+              lenis.resize();
+            }
+          }, 500);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
 

@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact &amp; Inquiries — KVM Creations</title>
-  <meta name="description" content="Initiate a conversation with KVM Creations — London, UK fine art photography &amp; videography studio. Available for worldwide commissions." />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="Initiate a conversation with KVM Creations — Toronto, Canada fine art photography &amp; videography studio. Available for commissions across Canada." />
+  <link rel="stylesheet" href="css/style.css?v=2" />
 </head>
 <body>
   
@@ -52,7 +52,7 @@
       <section class="contact-hero-section reveal">
         <div class="contact-status-pill">
           <span class="status-pulse"></span>
-          <span>London Studio &bull; Booking 2026/2027 Commissions</span>
+          <span>Toronto Studio &bull; Booking 2026/2027 Commissions</span>
         </div>
         
         <h1 class="contact-hero-heading">
@@ -74,16 +74,35 @@
 
           <form id="contactForm" onsubmit="event.preventDefault(); handleInquirySubmit();">
             
-            <!-- SELECTOR PILLS FOR EVENT TYPE -->
+            <!-- SERVICES CHECKBOXES -->
             <div class="form-group">
-              <label class="form-label">Select Service</label>
-              <div class="service-selector-pills">
-                <button type="button" class="service-pill active" onclick="setService(this, 'Wedding Photography')">Wedding</button>
-                <button type="button" class="service-pill" onclick="setService(this, 'Portrait Session')">Portrait</button>
-                <button type="button" class="service-pill" onclick="setService(this, 'Cinematic Film')">Film</button>
-                <button type="button" class="service-pill" onclick="setService(this, 'Editorial')">Editorial</button>
+              <label class="form-label">Types of Service (Select all that apply) *</label>
+              <div class="service-checkboxes">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="services" value="Wedding Only" class="checkbox-input" />
+                  <span>Wedding Only</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="services" value="Wedding and Reception" class="checkbox-input" />
+                  <span>Wedding and Reception</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="services" value="Engagement Shoot" class="checkbox-input" />
+                  <span>Engagement Shoot</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="services" value="Portraits / Headshots" class="checkbox-input" />
+                  <span>Portraits / Headshots</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="services" value="Fashion" class="checkbox-input" />
+                  <span>Fashion</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="services" value="Other" class="checkbox-input" />
+                  <span>Other</span>
+                </label>
               </div>
-              <input type="hidden" id="selectedService" name="service" value="Wedding Photography" />
             </div>
 
             <div class="form-row">
@@ -99,18 +118,23 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label for="phone" class="form-label">Phone / WhatsApp</label>
-                <input type="tel" id="phone" class="form-input" placeholder="+1 (437) 000-0000" />
+                <label for="eventDate1" class="form-label">Primary Date</label>
+                <input type="date" id="eventDate1" class="form-input" style="color: var(--clr-muted);" />
               </div>
               <div class="form-group">
-                <label for="eventDate" class="form-label">Estimated Date</label>
-                <input type="text" id="eventDate" class="form-input" placeholder="e.g. Summer 2026" />
+                <label for="eventDate2" class="form-label">Backup Date</label>
+                <input type="date" id="eventDate2" class="form-input" style="color: var(--clr-muted);" />
               </div>
             </div>
 
             <div class="form-group">
-              <label for="message" class="form-label">Tell Us About Your Vision *</label>
-              <textarea id="message" class="form-textarea" rows="4" placeholder="Share event location, venue details, or aesthetic vision..." required></textarea>
+              <label for="phone" class="form-label">Phone / WhatsApp</label>
+              <input type="tel" id="phone" class="form-input" placeholder="+1 (437) 000-0000" />
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">We want to get to know you! Tell us more about you and what you are looking for</label>
+              <textarea id="message" class="form-textarea" rows="4" placeholder="Share your story, vision, or details about your day..."></textarea>
             </div>
 
             <button type="submit" class="submit-inquiry-btn" id="submitBtn">
@@ -145,7 +169,7 @@
           <!-- STUDIO EDITORIAL SHOWCASE FRAME -->
           <div class="contact-split-media">
             <img src="assets/images/img14.webp" alt="KVM Creations Editorial Masterpiece" loading="eager" />
-            <div class="contact-media-badge">London &bull; UK Studio &bull; Available Worldwide</div>
+            <div class="contact-media-badge">Toronto &bull; Canada Studio &bull; Available across Canada</div>
           </div>
 
           <!-- DIRECT WHATSAPP CARD -->
@@ -169,53 +193,21 @@
       <!-- SOCIAL CHANNELS SHOWCASE -->
       <section class="social-channels-section reveal">
         <h2 class="social-channels-title">Official Studio Channels</h2>
-        <div class="contact-platforms-grid">
+        <div class="contact-social-links">
           
-          <a href="https://www.instagram.com/kvmcreationsstudio.ca?igsh=MWdzMXEzdGVna3UxZA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener" class="platform-card-item platform-card-item--instagram">
-            <div>
-              <div class="platform-card__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </div>
-              <p class="platform-card__label">Instagram</p>
-              <p class="platform-card__val">@kvmcreationsstudio.ca</p>
-            </div>
-            <div class="platform-card__btn">
-              <span>View Portfolio</span> &rarr;
-            </div>
+          <a href="https://www.instagram.com/kvmcreationsstudio.ca?igsh=MWdzMXEzdGVna3UxZA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener" class="contact-social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>Instagram</span>
           </a>
 
-          <a href="https://www.tiktok.com/@kvmcreationsstudio.ca?_r=1&amp;_t=ZS-986HAwQOaOL" target="_blank" rel="noopener" class="platform-card-item platform-card-item--tiktok">
-            <div>
-              <div class="platform-card__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-                </svg>
-              </div>
-              <p class="platform-card__label">TikTok</p>
-              <p class="platform-card__val">@kvmcreationsstudio.ca</p>
-            </div>
-            <div class="platform-card__btn">
-              <span>Watch Films</span> &rarr;
-            </div>
+          <a href="https://www.tiktok.com/@kvmcreationsstudio.ca?_r=1&amp;_t=ZS-986HAwQOaOL" target="_blank" rel="noopener" class="contact-social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+            <span>TikTok</span>
           </a>
 
-          <a href="https://wa.me/14372338460" target="_blank" rel="noopener" class="platform-card-item platform-card-item--whatsapp">
-            <div>
-              <div class="platform-card__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                </svg>
-              </div>
-              <p class="platform-card__label">WhatsApp</p>
-              <p class="platform-card__val">+1 (437) 233-8460</p>
-            </div>
-            <div class="platform-card__btn">
-              <span>Direct Chat</span> &rarr;
-            </div>
+          <a href="https://wa.me/14372338460" target="_blank" rel="noopener" class="contact-social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>WhatsApp</span>
           </a>
 
         </div>
@@ -303,28 +295,29 @@
   <script src="js/main.js"></script>
 
   <script>
-    function setService(btn, val) {
-      document.querySelectorAll('.service-pill').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('selectedService').value = val;
-    }
-
     function handleInquirySubmit() {
-      const service = document.getElementById('selectedService').value || 'General Inquiry';
+      const selectedServices = [];
+      document.querySelectorAll('input[name="services"]:checked').forEach(cb => {
+        selectedServices.push(cb.value);
+      });
+      const servicesStr = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
+
       const name = document.getElementById('fullName').value.trim();
       const email = document.getElementById('email').value.trim();
       const phone = document.getElementById('phone').value.trim();
-      const date = document.getElementById('eventDate').value.trim();
+      const date1 = document.getElementById('eventDate1').value;
+      const date2 = document.getElementById('eventDate2').value;
       const message = document.getElementById('message').value.trim();
 
       // Format WhatsApp pre-filled message text
       let text = `*New Inquiry - KVM Creations Studio*%0A%0A`;
-      text += `*Service Requested:* ${encodeURIComponent(service)}%0A`;
+      text += `*Services Requested:* ${encodeURIComponent(servicesStr)}%0A`;
       text += `*Client Name:* ${encodeURIComponent(name)}%0A`;
       text += `*Email:* ${encodeURIComponent(email)}%0A`;
       if (phone) text += `*Phone / WhatsApp:* ${encodeURIComponent(phone)}%0A`;
-      if (date) text += `*Estimated Date:* ${encodeURIComponent(date)}%0A`;
-      if (message) text += `*Vision / Notes:* ${encodeURIComponent(message)}%0A`;
+      if (date1) text += `*Primary Date:* ${encodeURIComponent(date1)}%0A`;
+      if (date2) text += `*Backup Date:* ${encodeURIComponent(date2)}%0A`;
+      if (message) text += `*About Client & Vision:* ${encodeURIComponent(message)}%0A`;
 
       const whatsappURL = `https://wa.me/14372338460?text=${text}`;
 

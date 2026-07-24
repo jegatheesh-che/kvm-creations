@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KVM Creations — London</title>
-  <meta name="description" content="KVM Creations — capturing love stories, moments and emotions in London, UK." />
+  <title>KVM Creations — Toronto, Canada</title>
+  <meta name="description" content="KVM Creations — capturing love stories, moments and emotions in Toronto, Canada." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -52,23 +52,52 @@
   <!-- ═══════════════════════════════════════ -->
 
   <section class="hero hero--full" id="hero">
+    <!-- Image Slides -->
     <div class="hero__slide active">
-      <video id="hero-reveal-video" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
-        <source src="assets/rotated/wall1.webm" type="video/webm">
-        <source src="assets/rotated/wall1.mp4" type="video/mp4">
-      </video>
-      <div class="hero__content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10; pointer-events: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 12px; width: 90vw;">
-        <span class="mask-reveal-wrap">
-          <span class="mask-reveal-inner" style="--delay: 0.1s; font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 6rem); color: #d4af37; line-height: 1; text-transform: uppercase; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">KVM</span>
-        </span>
-        <span class="mask-reveal-wrap">
-          <span class="mask-reveal-inner" style="--delay: 0.5s; font-family: var(--font-sans); font-size: clamp(1.5rem, 4vw, 3rem); color: #ffffff; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Creation Studios</span>
-        </span>
-      </div>
-      <button id="hero-mute-btn" class="hero-mute-btn" aria-label="Toggle mute" style="z-index: 20;">
-        <svg class="icon-muted" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-        <svg class="icon-unmuted" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-      </button>
+      <img src="assets/slide/kvm_creations_studio-116 (1).webp" alt="Radiant Essence - KVM Creations" loading="eager" />
+    </div>
+    <div class="hero__slide">
+      <img src="assets/slide/kvm_creations_studio-145.webp" alt="Fine Art Moment - KVM Creations" loading="lazy" />
+    </div>
+    <div class="hero__slide">
+      <img src="assets/slide/kvm_creations_studio-184.webp" alt="High Detail Celebration - KVM Creations" loading="lazy" />
+    </div>
+    <div class="hero__slide">
+      <img src="assets/slide/kvm_creations_studio-3.webp" alt="Elegance in Motion - Fine Art Wedding" loading="lazy" />
+    </div>
+    <div class="hero__slide">
+      <img src="assets/slide/kvm_creations_studio-79 (1).webp" alt="Highland Reverie - Fine Art Photography" loading="lazy" />
+    </div>
+    <div class="hero__slide">
+      <img src="assets/slide/kvm_creations_studio-83.webp" alt="Captivating Story - KVM Creations" loading="lazy" />
+    </div>
+
+    <!-- Bottom Overlay Content -->
+    <div class="hero__content" style="position: absolute; bottom: 72px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 10; pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 90vw;">
+      <span class="mask-reveal-wrap">
+        <span class="mask-reveal-inner" style="--delay: 0.1s; font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: #ffffff; line-height: 1; text-transform: uppercase; text-shadow: 0 2px 6px rgba(0,0,0,0.5);">KVM</span>
+      </span>
+      <span class="mask-reveal-wrap">
+        <span class="mask-reveal-inner" style="--delay: 0.5s; font-family: var(--font-sans); font-size: clamp(0.8rem, 1.6vw, 1.0rem); color: #ffffff; letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 2px 6px rgba(0,0,0,0.5);">Creation Studios</span>
+      </span>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="hero__arrow hero__arrow--prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="hero__arrow hero__arrow--next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+    <!-- Pagination Dots -->
+    <div class="hero__dots">
+      <button class="hero__dot active" aria-label="Slide 1"></button>
+      <button class="hero__dot" aria-label="Slide 2"></button>
+      <button class="hero__dot" aria-label="Slide 3"></button>
+      <button class="hero__dot" aria-label="Slide 4"></button>
+      <button class="hero__dot" aria-label="Slide 5"></button>
+      <button class="hero__dot" aria-label="Slide 6"></button>
     </div>
   </section>
 
@@ -76,7 +105,7 @@
   <!-- INTRO STATEMENT                        -->
   <!-- ═══════════════════════════════════════ -->
   <section class="home-intro">
-    <span class="home-intro__eyebrow reveal">London &mdash; UK &mdash; Worldwide</span>
+    <span class="home-intro__eyebrow reveal">Toronto &mdash; Ontario &mdash; Canada</span>
     <h2 class="home-intro__title reveal reveal-delay-1">
       Photography that feels like<br /><em>a held breath.</em>
     </h2>
@@ -152,21 +181,18 @@
     <div class="home-services__inner">
 
       <div class="home-service reveal">
-        <div class="home-service__num">01</div>
         <h3 class="home-service__title">Weddings &amp; Ceremonies</h3>
         <p class="home-service__desc">Full-day documentary coverage of your ceremony — candid emotions, quiet rituals, and every stolen glance between you.</p>
         <a href="gallery.html" class="home-service__arrow">&#8594;</a>
       </div>
 
       <div class="home-service reveal reveal-delay-1">
-        <div class="home-service__num">02</div>
         <h3 class="home-service__title">Eshoot Sessions</h3>
         <p class="home-service__desc">Intimate editorial shoots built around your story — a location, a feeling, a mood. No posing scripts. Just real connection.</p>
         <a href="eshoot.html" class="home-service__arrow">&#8594;</a>
       </div>
 
       <div class="home-service reveal reveal-delay-2">
-        <div class="home-service__num">03</div>
         <h3 class="home-service__title">Fine Art Portraits</h3>
         <p class="home-service__desc">Single-subject or family portraits crafted with the same fine-art lens — light, stillness, and the complexity within simplicity.</p>
         <a href="stories.html" class="home-service__arrow">&#8594;</a>
@@ -184,7 +210,7 @@
       <p class="section-label reveal">The Photographer</p>
       <h2 class="reveal reveal-delay-1">Art &amp; Science,<br /><em>unified by light.</em></h2>
       <p class="reveal reveal-delay-2">
-        KVM Creations is a Sri Lankan-born, London-based photographer and multi-disciplinary
+        KVM Creations is a Sri Lankan-born, Toronto-based photographer and multi-disciplinary
         artist holding a Ph.D. in Cancer Biology. She brings the same rigorous curiosity
         from the laboratory into every frame — observing, waiting, and capturing the moment
         that reveals the most.
@@ -200,8 +226,108 @@
       <div class="vogue-wrap">
         <div class="vogue-mask"></div>
         <div class="vogue-parallax">
-          <img src="assets/images/img1.webp" alt="Photographer portrait" />
+          <img src="assets/about/mathu.webp" alt="Mathusa Vinayakamoorthy Photographer Portrait" />
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- CLIENT REVIEWS SLIDER                   -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="home-reviews" id="reviews">
+    <div class="home-reviews__inner">
+      <div class="home-reviews__header reveal">
+        <div class="home-reviews__header-left">
+          <p class="section-label">Kind Words</p>
+          <h2 class="section-title">Client <em>Stories</em></h2>
+        </div>
+        <div class="home-reviews__controls">
+          <button class="review-nav-btn review-nav-prev" id="reviewPrevBtn" aria-label="Previous Review">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          </button>
+          <button class="review-nav-btn review-nav-next" id="reviewNextBtn" aria-label="Next Review">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="home-reviews__viewport" id="reviewViewport">
+        <div class="home-reviews__track" id="reviewTrack">
+          
+          <!-- Card 1 -->
+          <div class="home-review-card">
+            <div class="home-review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="home-review-card__quote">
+              "KVM Creations made our wedding feel completely timeless. Looking through our album brings back every emotion, every tear, and every quiet smile as if it were yesterday."
+            </blockquote>
+            <div class="home-review-card__author">
+              <div class="home-review-card__avatar">
+                <img src="assets/images/img3.webp" alt="Maya & Julian" />
+              </div>
+              <div class="home-review-card__meta">
+                <h4 class="home-review-card__name">Maya &amp; Julian</h4>
+                <p class="home-review-card__detail">Toronto Wedding &bull; Casa Loma</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="home-review-card">
+            <div class="home-review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="home-review-card__quote">
+              "Her scientific eye and artistic heart captured moments we didn't even notice happening. Every photo feels like a fine-art still life."
+            </blockquote>
+            <div class="home-review-card__author">
+              <div class="home-review-card__avatar">
+                <img src="assets/images/img9.webp" alt="Elena Rostova" />
+              </div>
+              <div class="home-review-card__meta">
+                <h4 class="home-review-card__name">Elena Rostova</h4>
+                <p class="home-review-card__detail">Fine Art Portrait &bull; Ontario</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="home-review-card">
+            <div class="home-review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="home-review-card__quote">
+              "The most effortless and beautiful photo session of our lives. There were no forced poses — just real laughter, intimacy, and pure connection."
+            </blockquote>
+            <div class="home-review-card__author">
+              <div class="home-review-card__avatar">
+                <img src="assets/images/img6.webp" alt="David & Sam" />
+              </div>
+              <div class="home-review-card__meta">
+                <h4 class="home-review-card__name">David &amp; Sam</h4>
+                <p class="home-review-card__detail">E-Shoot Session &bull; Muskoka</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="home-review-card">
+            <div class="home-review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="home-review-card__quote">
+              "Her mastery of light and quiet human emotion is unmatched. Our family will treasure these photographs for generations to come."
+            </blockquote>
+            <div class="home-review-card__author">
+              <div class="home-review-card__avatar">
+                <img src="assets/images/img12.webp" alt="Sophia & Liam" />
+              </div>
+              <div class="home-review-card__meta">
+                <h4 class="home-review-card__name">Sophia &amp; Liam</h4>
+                <p class="home-review-card__detail">Destination Ceremony &bull; Niagara</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="home-reviews__footer">
+        <div class="home-reviews__dots" id="reviewDots"></div>
       </div>
     </div>
   </section>
@@ -323,6 +449,10 @@
     </a>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
 
