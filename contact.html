@@ -316,36 +316,6 @@
         toast.textContent = "Sending inquiry to jegatheesh.s1110@gmail.com...";
         toast.classList.add('show');
       }
-
-      // Format WhatsApp pre-filled message text
-      const selectedServices = [];
-      document.querySelectorAll('input[name="Services Requested"]:checked').forEach(cb => {
-        selectedServices.push(cb.value);
-      });
-      const servicesStr = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
-
-      const name = document.getElementById('fullName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const date1 = document.getElementById('eventDate1').value;
-      const date2 = document.getElementById('eventDate2').value;
-      const message = document.getElementById('message').value.trim();
-
-      let text = `*New Inquiry - KVM Creations Studio*%0A%0A`;
-      text += `*Services Requested:* ${encodeURIComponent(servicesStr)}%0A`;
-      text += `*Client Name:* ${encodeURIComponent(name)}%0A`;
-      text += `*Email:* ${encodeURIComponent(email)}%0A`;
-      if (phone) text += `*Phone / WhatsApp:* ${encodeURIComponent(phone)}%0A`;
-      if (date1) text += `*Primary Date:* ${encodeURIComponent(date1)}%0A`;
-      if (date2) text += `*Backup Date:* ${encodeURIComponent(date2)}%0A`;
-      if (message) text += `*About Client & Vision:* ${encodeURIComponent(message)}%0A`;
-
-      const whatsappURL = `https://wa.me/14372338460?text=${text}`;
-
-      // Open WhatsApp as a dual channel shortly after clicking submit
-      setTimeout(() => {
-        window.open(whatsappURL, '_blank');
-      }, 1500);
     }
 
     function formSubmitComplete() {
