@@ -205,11 +205,11 @@ button { cursor: pointer; border: none; background: none; transition: transform 
 }
 
 .hero__layout {
-  min-height: 80vh;
+  min-height: auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 5rem;
-  align-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
   margin-bottom: 100px;
 }
 
@@ -218,11 +218,14 @@ button { cursor: pointer; border: none; background: none; transition: transform 
   flex-direction: column;
   justify-content: center;
   background: #ffffff;
-  padding: 40px 44px;
-  border-radius: 0;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  min-height: 75vh;
+  padding: 48px 52px;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  width: 100%;
+  aspect-ratio: auto;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .hero__eyebrow {
@@ -231,7 +234,7 @@ button { cursor: pointer; border: none; background: none; transition: transform 
   text-transform: uppercase;
   letter-spacing: 3.5px;
   color: #a8832a;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
   font-weight: 500;
 }
 
@@ -243,7 +246,7 @@ button { cursor: pointer; border: none; background: none; transition: transform 
 
 .hero__title {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 400;
   line-height: 1.15;
   color: #000000;
@@ -268,10 +271,9 @@ button { cursor: pointer; border: none; background: none; transition: transform 
 
 .hero__desc {
   font-family: var(--font-sans);
-  font-size: 1.05rem;
+  font-size: 0.96rem;
   line-height: 1.8;
-  max-width: 480px;
-  margin-top: 1.8rem;
+  margin-top: 1.2rem;
   font-weight: 300;
   color: #333333;
 }
@@ -280,7 +282,7 @@ button { cursor: pointer; border: none; background: none; transition: transform 
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 2rem;
+  margin-top: 1.6rem;
   text-decoration: none;
   color: #111111;
   font-family: var(--font-sans);
@@ -288,7 +290,7 @@ button { cursor: pointer; border: none; background: none; transition: transform 
   text-transform: uppercase;
   letter-spacing: 3px;
   border-bottom: 1.5px solid #b89230;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
   align-self: flex-start;
   transition: color 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
 }
@@ -302,16 +304,17 @@ button { cursor: pointer; border: none; background: none; transition: transform 
 .hero__image-col {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+  width: 100%;
 }
 
 .hero__image-wrapper {
   width: 100%;
-  max-width: 580px;
-  height: 75vh;
+  aspect-ratio: 1 / 1;
+  height: auto;
   overflow: hidden;
-  clip-path: inset(0% 0% 0% 0%);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
 }
 
 .hero__image {
@@ -327,9 +330,9 @@ button { cursor: pointer; border: none; background: none; transition: transform 
 .editorial-split-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: stretch;
-  margin-bottom: 120px;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 100px;
 }
 
 .editorial-split-section.reverse {
@@ -338,10 +341,12 @@ button { cursor: pointer; border: none; background: none; transition: transform 
 
 .editorial-image-wrapper {
   width: 100%;
-  height: 100%;
-  min-height: 520px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  min-height: unset;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
 }
 
 .editorial-image-wrapper img {
@@ -357,10 +362,14 @@ button { cursor: pointer; border: none; background: none; transition: transform 
   flex-direction: column;
   justify-content: center;
   background: #ffffff;
-  padding: 40px 44px;
-  border-radius: 0;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 48px 52px;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  width: 100%;
+  aspect-ratio: auto;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .editorial-text-col .hero__eyebrow {
@@ -442,29 +451,32 @@ button { cursor: pointer; border: none; background: none; transition: transform 
   .hero__layout {
     display: flex;
     flex-direction: column-reverse;
-    gap: 2.5rem;
+    gap: 2rem;
     margin-bottom: 60px;
     min-height: auto;
   }
-  .hero__text-col {
+  .hero__text-col,
+  .editorial-text-col {
+    aspect-ratio: auto;
     height: auto;
     min-height: auto;
+    padding: 32px 24px;
+    overflow-y: visible;
   }
   .hero__title.italic {
     padding-left: 0;
   }
-  .hero__image-wrapper {
-    height: 44vh;
+  .hero__image-wrapper,
+  .editorial-image-wrapper {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
     max-width: 100%;
   }
   .editorial-split-section {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-    margin-bottom: 70px;
-  }
-  .editorial-image-wrapper {
-    height: 350px;
-    min-height: auto;
+    gap: 2rem;
+    margin-bottom: 60px;
   }
   .editorial-stats-grid {
     grid-template-columns: repeat(2, 1fr);
