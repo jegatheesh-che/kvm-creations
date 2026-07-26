@@ -72,34 +72,42 @@
           <h2 class="form-card__title">Reserve Your Date</h2>
           <p class="form-card__desc">Fill in your details and our lead director will respond within 24 hours.</p>
 
-          <form id="contactForm" onsubmit="event.preventDefault(); handleInquirySubmit();">
+          <!-- HIDDEN IFRAME FOR SILENT SUBMISSION -->
+          <script>var submitted = false;</script>
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { formSubmitComplete(); }"></iframe>
+
+          <form id="contactForm" action="https://formsubmit.co/jegatheesh.s1110@gmail.com" method="POST" target="hidden_iframe" onsubmit="submitted=true; handleInquirySubmit(event);">
             
+            <input type="hidden" name="_subject" value="New Inquiry - KVM Creations">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+
             <!-- SERVICES CHECKBOXES -->
             <div class="form-group">
               <label class="form-label">Types of Service (Select all that apply) *</label>
               <div class="service-checkboxes">
                 <label class="checkbox-label">
-                  <input type="checkbox" name="services" value="Wedding Only" class="checkbox-input" />
+                  <input type="checkbox" name="Services Requested" value="Wedding Only" class="checkbox-input" />
                   <span>Wedding Only</span>
                 </label>
                 <label class="checkbox-label">
-                  <input type="checkbox" name="services" value="Wedding and Reception" class="checkbox-input" />
+                  <input type="checkbox" name="Services Requested" value="Wedding and Reception" class="checkbox-input" />
                   <span>Wedding and Reception</span>
                 </label>
                 <label class="checkbox-label">
-                  <input type="checkbox" name="services" value="Engagement Shoot" class="checkbox-input" />
+                  <input type="checkbox" name="Services Requested" value="Engagement Shoot" class="checkbox-input" />
                   <span>Engagement Shoot</span>
                 </label>
                 <label class="checkbox-label">
-                  <input type="checkbox" name="services" value="Portraits / Headshots" class="checkbox-input" />
+                  <input type="checkbox" name="Services Requested" value="Portraits / Headshots" class="checkbox-input" />
                   <span>Portraits / Headshots</span>
                 </label>
                 <label class="checkbox-label">
-                  <input type="checkbox" name="services" value="Fashion" class="checkbox-input" />
+                  <input type="checkbox" name="Services Requested" value="Fashion" class="checkbox-input" />
                   <span>Fashion</span>
                 </label>
                 <label class="checkbox-label">
-                  <input type="checkbox" name="services" value="Other" class="checkbox-input" />
+                  <input type="checkbox" name="Services Requested" value="Other" class="checkbox-input" />
                   <span>Other</span>
                 </label>
               </div>
@@ -108,33 +116,33 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="fullName" class="form-label">Your Name *</label>
-                <input type="text" id="fullName" class="form-input" placeholder="e.g. Eleanor &amp; James" required />
+                <input type="text" id="fullName" name="Client Name" class="form-input" placeholder="e.g. Eleanor &amp; James" required />
               </div>
               <div class="form-group">
                 <label for="email" class="form-label">Email Address *</label>
-                <input type="email" id="email" class="form-input" placeholder="e.g. name@example.com" required />
+                <input type="email" id="email" name="Email" class="form-input" placeholder="e.g. name@example.com" required />
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="eventDate1" class="form-label">Primary Date</label>
-                <input type="date" id="eventDate1" class="form-input" style="color: var(--clr-muted);" />
+                <input type="date" id="eventDate1" name="Primary Date" class="form-input" style="color: var(--clr-muted);" />
               </div>
               <div class="form-group">
                 <label for="eventDate2" class="form-label">Backup Date</label>
-                <input type="date" id="eventDate2" class="form-input" style="color: var(--clr-muted);" />
+                <input type="date" id="eventDate2" name="Backup Date" class="form-input" style="color: var(--clr-muted);" />
               </div>
             </div>
 
             <div class="form-group">
               <label for="phone" class="form-label">Phone / WhatsApp</label>
-              <input type="tel" id="phone" class="form-input" placeholder="+1 (437) 000-0000" />
+              <input type="tel" id="phone" name="Phone Number" class="form-input" placeholder="+1 (437) 000-0000" />
             </div>
 
             <div class="form-group">
               <label for="message" class="form-label">We want to get to know you! Tell us more about you and what you are looking for</label>
-              <textarea id="message" class="form-textarea" rows="4" placeholder="Share your story, vision, or details about your day..."></textarea>
+              <textarea id="message" name="Client Vision" class="form-textarea" rows="4" placeholder="Share your story, vision, or details about your day..."></textarea>
             </div>
 
             <button type="submit" class="submit-inquiry-btn" id="submitBtn">
@@ -296,12 +304,22 @@
   <script src="js/main.js"></script>
 
   <script>
-    async function handleInquirySubmit() {
+    function handleInquirySubmit(event) {
       const submitBtn = document.getElementById('submitBtn');
-      const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Sending Inquiry...</span>`;
+      }
 
+      const toast = document.getElementById('copyToast');
+      if (toast) {
+        toast.textContent = "Sending inquiry to jegatheesh.s1110@gmail.com...";
+        toast.classList.add('show');
+      }
+
+      // Format WhatsApp pre-filled message text
       const selectedServices = [];
-      document.querySelectorAll('input[name="services"]:checked').forEach(cb => {
+      document.querySelectorAll('input[name="Services Requested"]:checked').forEach(cb => {
         selectedServices.push(cb.value);
       });
       const servicesStr = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
@@ -313,89 +331,48 @@
       const date2 = document.getElementById('eventDate2').value;
       const message = document.getElementById('message').value.trim();
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Sending Inquiry...</span>`;
-      }
+      let text = `*New Inquiry - KVM Creations Studio*%0A%0A`;
+      text += `*Services Requested:* ${encodeURIComponent(servicesStr)}%0A`;
+      text += `*Client Name:* ${encodeURIComponent(name)}%0A`;
+      text += `*Email:* ${encodeURIComponent(email)}%0A`;
+      if (phone) text += `*Phone / WhatsApp:* ${encodeURIComponent(phone)}%0A`;
+      if (date1) text += `*Primary Date:* ${encodeURIComponent(date1)}%0A`;
+      if (date2) text += `*Backup Date:* ${encodeURIComponent(date2)}%0A`;
+      if (message) text += `*About Client & Vision:* ${encodeURIComponent(message)}%0A`;
 
+      const whatsappURL = `https://wa.me/14372338460?text=${text}`;
+
+      // Open WhatsApp as a dual channel shortly after clicking submit
+      setTimeout(() => {
+        window.open(whatsappURL, '_blank');
+      }, 1500);
+    }
+
+    function formSubmitComplete() {
+      const submitBtn = document.getElementById('submitBtn');
       const toast = document.getElementById('copyToast');
 
-      try {
-        // Send email via FormSubmit AJAX service to jegatheesh.s1110@gmail.com
-        const response = await fetch("https://formsubmit.co/ajax/jegatheesh.s1110@gmail.com", {
-          method: "POST",
-          headers: { 
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            "Client Name": name,
-            "Email Address": email,
-            "Phone / WhatsApp": phone || "N/A",
-            "Services Requested": servicesStr,
-            "Primary Date": date1 || "N/A",
-            "Backup Date": date2 || "N/A",
-            "Client Vision & Details": message || "N/A",
-            "_subject": `New Inquiry from ${name} - KVM Creations`,
-            "_template": "table"
-          })
-        });
-
-        if (response.ok) {
-          if (toast) {
-            toast.textContent = "Inquiry sent! Email sent to jegatheesh.s1110@gmail.com";
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 4000);
-          }
-          document.getElementById('contactForm').reset();
-          if (submitBtn) {
-            submitBtn.innerHTML = `<span>Inquiry Sent Successfully!</span>`;
-            setTimeout(() => {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = originalBtnContent;
-            }, 3000);
-          }
-
-          // Format WhatsApp pre-filled message text and open as dual channel
-          let text = `*New Inquiry - KVM Creations Studio*%0A%0A`;
-          text += `*Services Requested:* ${encodeURIComponent(servicesStr)}%0A`;
-          text += `*Client Name:* ${encodeURIComponent(name)}%0A`;
-          text += `*Email:* ${encodeURIComponent(email)}%0A`;
-          if (phone) text += `*Phone / WhatsApp:* ${encodeURIComponent(phone)}%0A`;
-          if (date1) text += `*Primary Date:* ${encodeURIComponent(date1)}%0A`;
-          if (date2) text += `*Backup Date:* ${encodeURIComponent(date2)}%0A`;
-          if (message) text += `*About Client & Vision:* ${encodeURIComponent(message)}%0A`;
-
-          const whatsappURL = `https://wa.me/14372338460?text=${text}`;
-          window.open(whatsappURL, '_blank');
-        } else {
-          throw new Error("FormSubmit server error");
-        }
-      } catch (err) {
-        console.error("Form submission error:", err);
-        if (toast) {
-          toast.textContent = "Opening WhatsApp to send inquiry...";
-          toast.classList.add('show');
-          setTimeout(() => toast.classList.remove('show'), 3500);
-        }
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnContent;
-        }
-
-        // Fallback directly to WhatsApp
-        let text = `*New Inquiry - KVM Creations Studio*%0A%0A`;
-        text += `*Services Requested:* ${encodeURIComponent(servicesStr)}%0A`;
-        text += `*Client Name:* ${encodeURIComponent(name)}%0A`;
-        text += `*Email:* ${encodeURIComponent(email)}%0A`;
-        if (phone) text += `*Phone / WhatsApp:* ${encodeURIComponent(phone)}%0A`;
-        if (date1) text += `*Primary Date:* ${encodeURIComponent(date1)}%0A`;
-        if (date2) text += `*Backup Date:* ${encodeURIComponent(date2)}%0A`;
-        if (message) text += `*About Client & Vision:* ${encodeURIComponent(message)}%0A`;
-
-        const whatsappURL = `https://wa.me/14372338460?text=${text}`;
-        window.open(whatsappURL, '_blank');
+      if (toast) {
+        toast.textContent = "Inquiry sent successfully to email!";
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4000);
       }
+
+      if (submitBtn) {
+        submitBtn.innerHTML = `<span>Inquiry Sent Successfully!</span>`;
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Submit Inquiry</span>`;
+        }, 3000);
+      }
+
+      document.getElementById('contactForm').reset();
+      submitted = false;
     }
   </script>
 </body>
