@@ -2642,6 +2642,31 @@ html, body {
   box-shadow: 0 15px 40px rgba(184, 146, 48, 0.35);
 }
 
+.submit-inquiry-btn.loading {
+  background: transparent;
+  border-color: #b89230;
+  color: #d4af37;
+  pointer-events: none;
+  opacity: 0.8;
+  box-shadow: 0 0 15px rgba(184, 146, 48, 0.2);
+}
+
+.submit-inquiry-btn.loading .spinner-icon {
+  animation: spinner-rotate 1s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  100% { transform: rotate(360deg); }
+}
+
+.submit-inquiry-btn.success {
+  background: #d4af37;
+  color: #000000;
+  border-color: #b89230;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(184, 146, 48, 0.4);
+}
+
 /* Side Col: Giant Email + Media Frame + WhatsApp */
 .contact-side-col {
   display: flex;
