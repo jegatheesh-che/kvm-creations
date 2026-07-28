@@ -132,7 +132,10 @@ function showToast(message, isError = false) {
 // ------------------------------------------------
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.href = 'login.html';
+    const path = window.location.pathname.toLowerCase();
+    if (!path.endsWith('login.html')) {
+      window.location.href = 'login.html';
+    }
     return;
   }
 

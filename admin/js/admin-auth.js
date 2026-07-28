@@ -57,7 +57,8 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     if (user.uid === ADMIN_UID) {
       // Authorized admin session active — redirect to dashboard
-      if (window.location.pathname.endsWith('login.html') || window.location.pathname.endsWith('/admin/')) {
+      const path = window.location.pathname.toLowerCase();
+      if (path.endsWith('login.html') || path.endsWith('/admin') || path.endsWith('/admin/')) {
         window.location.href = 'index.html';
       }
     } else {
