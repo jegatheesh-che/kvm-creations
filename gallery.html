@@ -305,6 +305,72 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- FIRESTORE DYNAMIC PUBLIC GALLERY LOADER -->
+  <script type="module">
+    import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+    import { db } from "./js/firebase-config.js";
+
+    async function loadPublicGalleryFromFirestore() {
+      const masonry = document.getElementById('galleryMasonry');
+      if (!masonry) return;
+
+      try {
+        const q = query(collection(db, "gallery"), orderBy("order", "asc"));
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+          console.log("Firestore gallery collection is empty. Retaining 28 static fallback cards.");
+          return;
+        }
+
+        const docs = [];
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+          if (data && data.imageUrl && data.title) {
+            docs.push({ id: docSnap.id, ...data });
+          }
+        });
+
+        if (docs.length === 0) {
+          console.log("No valid Firestore gallery records found. Retaining 28 static fallback cards.");
+          return;
+        }
+
+        // Generate dynamic cards HTML matching exact existing card structure
+        let dynamicHtml = '';
+        docs.forEach(docData => {
+          const tiltClass = docData.tiltClass || '';
+          const catSlug = docData.categorySlug || 'weddings';
+          const title = docData.title || 'KVM Showcase';
+          const thumbUrl = docData.thumbnailUrl || docData.imageUrl;
+          const fullUrl = docData.imageUrl;
+
+          dynamicHtml += `
+            <div class="gallery-card ${tiltClass} reveal" data-category="${catSlug}" data-title="${title}" data-full="${fullUrl}">
+              <img src="${thumbUrl}" alt="${title}" loading="lazy" />
+              <div class="gallery-card__expand">&#10530;</div>
+            </div>
+          `;
+        });
+
+        // Replace static cards with Firestore cards
+        masonry.innerHTML = dynamicHtml;
+
+        // Re-initialize shiny wrappers, GSAP reveal, filters, and Lenis height
+        if (typeof window.reinitGalleryUI === 'function') {
+          window.reinitGalleryUI();
+        }
+
+      } catch (error) {
+        console.warn("Firestore public gallery read unavailable or failed. Retaining 28 static fallback cards.", error);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadPublicGalleryFromFirestore();
+    });
+  </script>
 </body>
 </html>
 

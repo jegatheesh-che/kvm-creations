@@ -449,6 +449,88 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- FIRESTORE DYNAMIC HOME HERO LOADER -->
+  <script type="module">
+    import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+    import { db } from "./js/firebase-config.js";
+
+    async function loadPublicHeroFromFirestore() {
+      const heroSection = document.getElementById('hero');
+      if (!heroSection) return;
+
+      try {
+        const q = query(collection(db, "hero_slides"), orderBy("order", "asc"));
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+          console.log("Firestore hero_slides collection is empty. Retaining 6 static fallback slides.");
+          return;
+        }
+
+        const activeDocs = [];
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+          if (data && data.isActive === true && data.imageUrl && data.title) {
+            activeDocs.push({ id: docSnap.id, ...data });
+          }
+        });
+
+        if (activeDocs.length === 0) {
+          console.log("No active Firestore hero slides. Retaining 6 static fallback slides.");
+          return;
+        }
+
+        // Generate dynamic slides & pagination dots HTML
+        let slidesHtml = '';
+        let dotsHtml = '';
+
+        activeDocs.forEach((slide, idx) => {
+          const activeClass = idx === 0 ? 'active' : '';
+          const loadingAttr = idx === 0 ? 'eager' : 'lazy';
+          const titleText = slide.title || 'KVM Showcase';
+
+          slidesHtml += `
+            <div class="hero__slide ${activeClass}">
+              <img src="${slide.imageUrl}" alt="${titleText} - KVM Creations" loading="${loadingAttr}" />
+            </div>
+          `;
+
+          dotsHtml += `<button class="hero__dot ${activeClass}" aria-label="Slide ${idx + 1}"></button>`;
+        });
+
+        // 1. Remove existing static .hero__slide elements
+        const existingSlides = heroSection.querySelectorAll('.hero__slide');
+        existingSlides.forEach(slide => slide.remove());
+
+        // 2. Insert dynamic .hero__slide elements before .hero__content
+        const heroContent = heroSection.querySelector('.hero__content');
+        if (heroContent) {
+          heroContent.insertAdjacentHTML('beforebegin', slidesHtml);
+        } else {
+          heroSection.insertAdjacentHTML('afterbegin', slidesHtml);
+        }
+
+        // 3. Update .hero__dots container
+        const dotsContainer = heroSection.querySelector('.hero__dots');
+        if (dotsContainer) {
+          dotsContainer.innerHTML = dotsHtml;
+        }
+
+        // 4. Re-initialize hero slider controls & GSAP animations
+        if (typeof window.reinitHeroSlider === 'function') {
+          window.reinitHeroSlider();
+        }
+
+      } catch (error) {
+        console.warn("Firestore hero slides fetch unavailable or failed. Retaining 6 static fallback slides.", error);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadPublicHeroFromFirestore();
+    });
+  </script>
 </body>
 </html>
 
