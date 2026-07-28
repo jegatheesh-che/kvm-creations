@@ -59,7 +59,7 @@ onAuthStateChanged(auth, (user) => {
       // Authorized admin session active — redirect to dashboard
       const path = window.location.pathname.toLowerCase();
       if (path.endsWith('login.html') || path.endsWith('/admin') || path.endsWith('/admin/')) {
-        window.location.href = 'index.html';
+        window.location.href = '/admin/index.html';
       }
     } else {
       // Authenticated user lacks authorized admin UID — sign out immediately
@@ -96,7 +96,7 @@ if (loginForm) {
       // Strict Admin UID Authorization Check
       if (user.uid === ADMIN_UID) {
         // Access Granted
-        window.location.href = 'index.html';
+        window.location.href = '/admin/index.html';
       } else {
         // Access Denied: Revoke session immediately
         await signOut(auth);

@@ -134,7 +134,7 @@ onAuthStateChanged(auth, async (user) => {
   if (!user) {
     const path = window.location.pathname.toLowerCase();
     if (!path.endsWith('login.html')) {
-      window.location.href = 'login.html';
+      window.location.href = '/admin/login.html';
     }
     return;
   }
@@ -142,7 +142,7 @@ onAuthStateChanged(auth, async (user) => {
   if (user.uid !== ADMIN_UID) {
     console.warn(`Unauthorized access attempt by UID: ${user.uid}`);
     await signOut(auth);
-    window.location.href = 'login.html';
+    window.location.href = '/admin/login.html';
     return;
   }
 
@@ -875,9 +875,9 @@ if (logoutBtn) {
   logoutBtn.addEventListener('click', async () => {
     try {
       await signOut(auth);
-      window.location.href = 'login.html';
+      window.location.href = '/admin/login.html';
     } catch (error) {
-      window.location.href = 'login.html';
+      window.location.href = '/admin/login.html';
     }
   });
 }
